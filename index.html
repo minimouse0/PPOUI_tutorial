@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>OP Tools Docs</title>
+  <title>Liteloader Dev</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -12,22 +12,20 @@
   <link rel="stylesheet" href="./static/css/vue.css" />
   <!--夜间模式CSS-->
   <link rel="stylesheet" href="./static/css/style.min.css" />
-  <!--无边框按钮CSS-->
-  <link rel="stylesheet" href="assets/css/button.css" />
 </head>
 
 <body>
   <div id="app">Loading...</div>
   <script>
     window.$docsify = {
-      name: 'OP Tools',
-      repo: '',
+      name: 'Liteloader Dev',
+      repo: 'https://github.com/engsr6982/Liteloader_Dev',
       //边栏
       loadSidebar: true,
       //封面
       coverpage: true,
       //导航栏
-      loadNavbar: true,
+      loadNavbar: false,
       //回到顶部
       auto2top: true,
       //层级
@@ -75,17 +73,6 @@
         light: {
           highlightColor: '#e96900',
         }
-      },
-      //最后更新时间
-      timeUpdater: {
-        text: ">最后更新时间: {docsify-updated}",
-        formatUpdated: "{YYYY}-{MM}-{DD} {HH}:{mm}",
-        whereToPlace: "top",  // "top" or "bottom", default to "bottom"
-      },
-      HTML_Edit: {
-        text: "[📝 在Github编辑此页]({repo})\n",// 文字
-        repo: "https://github.com/engsr6982/OPTools_Docs", //仓库链接
-        Position: "bottom"// 显示位置
       }
     }
   </script>
@@ -102,17 +89,13 @@
   <!--进度条-->
   <script src="./static/js/progress.min.js"></script>
   <!--JSON高亮-->
-  <script src="assets/js/prism-json.min.js"></script>
+  <script src="./static/js/prism-json.min.js"></script>
   <!--日志高亮-->
-  <script src="assets/js/prism-log.min.js"></script>
+  <script src="./static/js/prism-log.min.js"></script>
   <!--夜间模式-->
   <script src="./static/js/index.min.js"></script>
   <!--上下章节-->
   <script src="./static/js/docsify-pagination.min.js"></script>
-  <!--最后更新时间-->
-  <script src="./static/js/time-updater.js"></script>
-  <!--页面编辑-->
-  <script src="assets/js/HTML_Edit.js"></script>
 </body>
 
 </html>

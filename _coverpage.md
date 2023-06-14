@@ -1,7 +1,7 @@
 
 # Liteloader Dev 
 
-- Liteloader BDS教程
-- 
+- Liteloader BDS教程合集
 
-[阅读文档](#前言)
+[Github](https://github.com/engsr6982/Liteloader_Dev)
+[阅读文档](#前言) 
