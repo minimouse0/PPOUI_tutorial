@@ -124,6 +124,41 @@
 }
 ```
 
-配置完以上两个文件, 按F5尝试编译   
-为什么叫尝试？ 因为100%不行，还要配置一点东西   
+配置完以上两个文件，你的仓库目录应该是这样的
+![vscode-dir](../dev-env/img/vscode-dir.png)
 
+### 尝试调试
+
+因为我的仓库都配置好了，懒的再新建仓库，所以copy了一下，做了个简易仓库，在下文中统一叫它仓库   
+
+仓库绝对路径：D:\Repo\PluginTemplate-CPP   
+
+vscode打开项目仓库，按道理，右下角会有一堆提示、报错、建议   
+我们选择直接无视    
+
+接着打开./src/plugin.cpp, 按F5开始调试   
+![build-err](../dev-env/img/build-err.png)
+意料之中的错误，为什么它会报错找不到任务build，那就要问微软了，这个是玄学   
+跟着箭头点配置任务，接下来会打开这个页面
+![build-cl](../dev-env/img/build-cl.png)
+选择cl调试, 然后vscode会跳转到我们配置好的tasks文件   
+你会发现vscode自动在后面加上了它的内容，我们选择不需要，删掉
+![img](../dev-env/img/build-cl-tasks.png)
+
+> [!warning]
+> tasks.json和launch.json都必须和上述内容一致(要改的除外)
+
+接着再按F5，你会发现已经开始编译了
+![img](../dev-env/img/build-1.png)
+![img](../dev-env/img/build-ok.png)
+出现上述字样代表你的环境配置成功！
+
+接着按照调试文件配置，会启动BDS
+![img](../dev-env/img/build-ts.png)
+BDS输出 检测到现有调试器.....代表调试配置成功
+接下来你可以在你的代码上打上断点，开始调试你的插件
+
+当然，如果你不想F5启动BDS调试，只想编译，点击下方的Build按钮即可
+![img](../dev-env/img/build-button.png)
+
+## 手动编译
