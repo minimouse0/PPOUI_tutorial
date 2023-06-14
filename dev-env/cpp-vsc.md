@@ -25,7 +25,8 @@
 6. CMake Language Support(可选)
 
 ## 配置MSVC
-
+没啥可配置的，下载完成重启电脑就是
+![msvc-cpp](../dev-env/img/msvc-cpp.png)
 
 ## 安装&配置CMake
 
@@ -50,10 +51,79 @@
 ## VScode配置
 确保你以按前面要求安装了所需的vscode扩展，再阅读下面的教程  
 
-### 配置launch.json
+使用vscode打开你的项目，新建一个.vscode文件夹
 
+### 配置launch.json
+在.vscode文件夹下，新建launch.json文件，并复制以下内容进去    
+然后看注释修改两个地方   
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Build Plugin",
+            // 注意修改  BDS路径
+            "program": "C:\\Server\\Beta\\bedrock_server_mod.exe",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            // 调试控制台  internalConsole使用VSC内置控制台  externalTerminal外部控制台
+            "console": "externalTerminal",
+            "preLaunchTask": "build",
+            "logging": {
+                "moduleLoad": false
+            }
+        },
+        // 附加调试
+        {
+            "name": "(vsdbg) 附加",
+            "type": "cppvsdbg",
+            "request": "attach",
+            "processId": "${command:pickProcess}",
+            "logging": {
+                "moduleLoad": false,
+                "trace": true
+            },
+            // 注意修改  附加PDB
+            "visualizerFile":"D:\\Repo\\test-c\\build\\Release\\plugin.pdb"
+        }
+    ]
+}
+```
 
 ### 配置tasks.json
+在.vscode文件夹下，新建tasks.json文件，并复制以下内容进去    
 
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+		{
+			"type": "shell",
+			"label": "cmake",
+			"command": "cmake -B ./build ."
+		},
+		{
+			"type": "shell",
+			"label": "make",
+			"command": "cmake --build ./build --config=Debug"
+		},
+		{
+			"label": "build",
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"cmake",
+				"make"
+			]
+		}
+	]
+}
+```
 
+配置完以上两个文件, 按F5尝试编译   
+为什么叫尝试？ 因为100%不行，还要配置一点东西   
 
