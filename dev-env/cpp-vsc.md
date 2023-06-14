@@ -162,3 +162,99 @@ BDS输出 检测到现有调试器.....代表调试配置成功
 ![img](../dev-env/img/build-button.png)
 
 ## 手动编译
+
+其实编译很简单，就两个命令
+
+```cmd
+cmake -B ./build
+cmake --build ./build --config=Release
+```
+
+根据这两个命令，我们可以写一个bat脚本
+```bat
+@echo off
+
+echo SetConsole UTF-8
+chcp 65001 >nul
+
+echo. 
+echo [Build] ./Build
+echo. 
+
+cmake -B ./Build
+
+echo. 
+echo [Buid] Plugin
+echo. 
+
+cmake --build ./build --config=Release
+
+echo. 
+echo [Buid] Success
+echo. 
+
+pause
+```
+将这个脚本放入仓库根目录下   
+双击运行它   
+```log
+
+[Build] ./Build
+
+-- Building for: Visual Studio 17 2022
+-- Selecting Windows SDK version 10.0.22000.0 to target Windows 10.0.14393.
+-- The C compiler identification is MSVC 19.36.32532.0
+-- The CXX compiler identification is MSVC 19.36.32532.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.36.32532/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.36.32532/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (5.5s)
+-- Generating done (0.1s)
+-- Build files have been written to: D:/Repo/PluginTemplate-CPP/Build
+
+[Buid] Plugin
+
+MSBuild version 17.6.3+07e294721 for .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule D:/Repo/PluginTemplate-CPP/CMakeLists.txt
+  dllmain.cpp
+  plugin.cpp
+    正在创建库 D:/Repo/PluginTemplate-CPP/Build/Release/plugin.lib 和对象 D:/Repo/PluginTemplate-CPP
+  /Build/Release/plugin.exp
+  正在生成代码
+  Previous IPDB not found, fall back to full compilation.
+  All 1327 functions were compiled because no usable IPDB/IOBJ from previous compilation was
+   found.
+  已完成代码的生成
+  plugin.vcxproj -> D:\Repo\PluginTemplate-CPP\Build\Release\plugin.dll
+  Building Custom Rule D:/Repo/PluginTemplate-CPP/CMakeLists.txt
+
+[Buid] Success
+
+Press any key to continue . . .
+```
+
+编译生成的插件在仓库根目录下的./Build文件夹下    
+注意: Release为正式版 用于发布   Debug为测试版  用于调试
+![img](../dev-env/img/build-dll.png)
+
+## 记录问题
+23/6/14   cmake编译报错    
+```log
+  Building Custom Rule D:/Repo/TPR/CMakeLists.txt
+LINK : fatal error C1047: 对象或库文件“D:\Repo\TPR\SDK\lib\SymDBHelper.lib”是使用与其他对象(如“plugin.dir\Debug\dllmain.obj”)不同的编译器版本创建的；请使用相同的编译
+器重新生成所有对象和库 [D:\Repo\TPR\build\plugin.v
+cxproj]
+LINK : fatal error LNK1257: 代码生成失败 [D:\Repo\TPR\build\plugin.vcxproj]
+```
+
+解决方法  删除sdk/lib/bedrock开头的两个文件重试   
+实在不行，重新拉取SDK   
