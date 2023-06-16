@@ -18,9 +18,9 @@
 
 ### VSCode扩展
 1. C/C++
-2. C/C++ Themes
+2. C/C++ Themes(可选)
 3. C/C++ Extension Pack
-4. CMake
+4. CMake(可选)
 5. CMake Tools
 6. CMake Language Support(可选)
 
