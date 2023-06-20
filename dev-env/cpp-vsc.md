@@ -31,27 +31,27 @@
 6. CMake Language Support(可选)
 
 ## 配置MSVC
-没啥可配置的，下载完成重启电脑就是
+打开下载好的`vs_BuildTools`，等待初始化完成，然后在弹出的窗口中选择“使用C++的桌面开发”，如果电脑空间紧张，可以在右侧取消勾选“Windows 11 SDK”和“C++ AddressSanitizer”。然后点击右下角的“安装“即可。
 ![msvc-cpp](../dev-env/img/msvc-cpp.png)
 
 ## 安装&配置CMake
 
-没什么重要的配置，版本我下的是3.27-rc2，最新的就行
+没什么重要的配置，版本我下的是3.27-rc2，最新的就行  
 
-一路下一步, 直到这个页面
-![cmake](../dev-env/img/cmake.png)
+一路下一步, 直到这个页面  
+![cmake](../dev-env/img/cmake.png)  
 
 建议选择第二个，省去很多麻烦
 
-安装完成，打开cmd，输入`cmake -version`，看看cmake环境变量是否正常
-![cmake-path-err](../dev-env/img/cmake-path-err.png)
+安装完成，打开cmd，输入`cmake -version`，看看cmake环境变量是否正常    
+![cmake-path-err](../dev-env/img/cmake-path-err.png)  
 如果和我一样，显示不是内部或外部命令，就代表cmake环境变量不正常，需要手动添加cmake环境变量
 
 右键 计算机 > 属性 > 高级系统设置 > 环境变量 > 系统变量 > Path
 
 如果没有看到cmake字样代表环境变量缺失，需要手动添加环境变量   
-进入你的cmake安装目录，我这里是默认路径，所以是C:\Program Files\CMake\bin    
-![cmake-path-err-add](../dev-env/img/cmake-path-err-add.png)
+进入你的cmake安装目录，我这里是默认路径，所以是C:\Program Files\CMake\bin      
+![cmake-path-err-add](../dev-env/img/cmake-path-err-add.png)  
 把这个路径添加到环境变量中，然后重启系统即可   
 
 ## 克隆版本库
@@ -142,6 +142,9 @@ git将开始从远程仓库下载插件模板。如果提示网络错误之类�
 ### 拉取更新SDK
 
 在根目录找到update_sdk.cmd并运行一次
+### 配置插件
+
+[官方教程](https://cpp.docs.litebds.com/zh-Hans/quickstart.html)
 
 ### 尝试调试
 
@@ -162,12 +165,14 @@ vscode打开项目仓库，按道理，右下角会有一堆提示、报错、�
 ![img](../dev-env/img/build-cl-tasks.png)  
 
 > [!warning]
-> tasks.json和launch.json都必须和上述内容一致(要改的除外)
+> tasks.json和launch.json都必须和上述内容一致(要改的除外)  
 
-接着再按F5，你会发现已经开始编译了
-![img](../dev-env/img/build-1.png)
-![img](../dev-env/img/build-ok.png)
-出现上述字样代表你的环境配置成功！
+接着再按F5，你会发现已经开始编译了  
+![img](../dev-env/img/build-1.png)  
+![img](../dev-env/img/build-ok.png)  
+出现上述字样代表你的环境配置成功！  
+如果卡在`Executing task: cmake -B ./build .`不动，依照下一章内容手动执行编译。
+
 
 接着按照调试文件配置，会启动BDS
 ![img](../dev-env/img/build-ts.png)
@@ -179,14 +184,15 @@ BDS输出 检测到现有调试器.....代表调试配置成功
 
 ## 手动编译
 
-其实编译很简单，就两个命令
+在文件管理器中到项目根目录shift+右键（和上文克隆仓库打开powershell一样）选择“在此处打开Powershell窗口”  
+然后开始执行编译命令。其实编译很简单，就两个命令
 
 ```cmd
 cmake -B ./build
 cmake --build ./build --config=Release
 ```
 
-根据这两个命令，我们可以写一个bat脚本
+如果觉得手动编译麻烦，可以使用如下的bat脚本
 ```bat
 @echo off
 
