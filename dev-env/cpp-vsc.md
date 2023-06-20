@@ -2,19 +2,22 @@
 
 ## 所需工具
 1. 一个聪明的大脑
-2. 一台电脑
-
-好了不开玩笑了
+2. 一台CPU基于x86-64的电脑，安装Windows10 x64或Windows Server 2016（建议安装桌面体验）及以上版本的64位Windows，建议搭载至少基于Haswell的双核心CPU、4GB内存，至少10GB的剩余可用空间
 
 > [!warning]
-> 您的电脑系统必须为Windows 10/11 x64  
+> LiteLoader仅支持在此平台开发，如果您没有此类平台，您必须在计算机上配置此平台的虚拟环境，或购置/租借基于此平台的计算机
 
-1. [Git]()
-2. [VSCode]()
-3. [MSVC 2022编译器]()
-4. [CMake]()
-5. [Minecraft Bedrock Server]() + [Liteloader BDS]() 
-6. [GitHub DeskTop]() (可选)
+## 所需软件
+
+1. [Git](git-scm.com/)
+2. [VSCode](https://code.visualstudio.com)
+3. [Microsoft C++ 生成工具](https://visualstudio.microsoft.com/zh-hans/visual-cpp-build-tools/)
+4. [CMake](https://www.baidu.com/link?url=fUUvwhQvxvj861Edq_vyf3udXubzfw5LVMniwt1Hiaq&wd=&eqid=ae15cf69001798c30000000264917770)
+5. [Minecraft Bedrock Server](https://www.minecraft.net/en-us/download/server/bedrock)
+6. [Liteloader BDS](https://github.com/LiteLDev/LiteLoaderBDS/releases) 
+7. [GitHub DeskTop](https://desktop.github.com) (可选)
+
+如果遇到以上任何链接失效，都可以去搜索引擎输入名字搜索
 
 ### VSCode扩展
 1. C/C++
