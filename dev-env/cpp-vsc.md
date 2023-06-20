@@ -6,6 +6,8 @@
 
 > [!warning]
 > LiteLoader仅支持在此平台开发，如果您没有此类平台，您必须在计算机上配置此平台的虚拟环境，或购置/租借基于此平台的计算机
+  
+如果是小白有条件仍然是建议用vs，vscode编译较为复杂，适合已有一定基础的开发者使用  
 
 ## 所需软件
 
@@ -137,6 +139,9 @@ git将开始从远程仓库下载插件模板。如果提示网络错误之类�
 配置完以上两个文件，你的仓库目录应该是这样的
 ![vscode-dir](../dev-env/img/vscode-dir.png)
 
+### 拉取更新SDK
+
+在根目录找到update_sdk.cmd并运行一次
 ### 配置插件
 
 [官方教程](https://cpp.docs.litebds.com/zh-Hans/quickstart.html)
