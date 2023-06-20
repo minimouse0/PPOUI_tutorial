@@ -11,10 +11,10 @@
 
 ## 所需软件
 
-1. [Git](git-scm.com/)
+1. [Git](https://git-scm.com)
 2. [VSCode](https://code.visualstudio.com)
 3. [Microsoft C++ 生成工具](https://visualstudio.microsoft.com/zh-hans/visual-cpp-build-tools/)
-4. [CMake](https://www.baidu.com/link?url=fUUvwhQvxvj861Edq_vyf3udXubzfw5LVMniwt1Hiaq&wd=&eqid=ae15cf69001798c30000000264917770)
+4. [CMake](https://cmake.org)
 5. [Minecraft Bedrock Server](https://www.minecraft.net/en-us/download/server/bedrock)
 6. [Liteloader BDS](https://github.com/LiteLDev/LiteLoaderBDS/releases) 
 7. [GitHub DeskTop](https://desktop.github.com) (可选)
@@ -31,7 +31,7 @@
 6. CMake Language Support(可选)
 
 ## 配置MSVC
-打开下载好的`vs_BuildTools`，等待初始化完成，然后在弹出的窗口中选择“使用C++的桌面开发”，如果电脑空间紧张，可以在右侧取消勾选“Windows 11 SDK”和“C++ AddressSanitizer”。然后点击右下角的“安装“即可。
+打开下载好的`vs_BuildTools`，等待初始化完成，然后在弹出的窗口中选择“使用C++的桌面开发”，如果电脑空间紧张，可以在右侧取消勾选“C++ AddressSanitizer”。然后点击右下角的“安装“即可。
 ![msvc-cpp](../dev-env/img/msvc-cpp.png)
 
 ## 安装&配置CMake
